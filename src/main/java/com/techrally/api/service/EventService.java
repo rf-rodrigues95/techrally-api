@@ -10,6 +10,8 @@ import com.techrally.api.domain.event.Event;
 import com.techrally.api.domain.event.EventRequestDto;
 import com.techrally.api.repositories.EventRepository;
 
+import jakarta.persistence.Column;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,17 +32,17 @@ public class EventService {
     private EventRepository repository;
     
     public Event createEvent(EventRequestDto data) {
-        String imgUrl = null;
+        String imageUrl = "";
 
         if (data.image() != null)
-            imgUrl = this.uploadImg(data.image());
+            imageUrl = this.uploadImg(data.image());
 
         Event newEvent = new Event();
         newEvent.setTitle(data.title());
         newEvent.setDescription(data.description());
         newEvent.setEventUrl(data.eventUrl());
-        newEvent.setDate(new Date(data.date()) ); //timeStamp
-        newEvent.setImgUrl(imgUrl);
+        newEvent.setDate(new Date(data.date()) );
+        newEvent.setImageUrl(imageUrl);
         newEvent.setRemote(data.remote());
 
         repository.save(newEvent);
