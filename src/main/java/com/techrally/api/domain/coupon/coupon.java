@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class coupon {
+public class Coupon {
 
     @Id
     @GeneratedValue

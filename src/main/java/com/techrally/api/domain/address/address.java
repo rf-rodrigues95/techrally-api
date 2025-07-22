@@ -21,7 +21,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class address {
+public class Address {
 
     @Id
     @GeneratedValue
